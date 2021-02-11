@@ -1,0 +1,10 @@
+﻿{
+  "apiKey": "",
+  "consumptionReportUrl": "https://wedeex-api-center.azure-api.net/internal/consumption/report",
+  "consumptionSummaryUrl": "https://wedeex-api-center.azure-api.net/consumption/summary",
+  "notificationHubConnectionString": "",
+  "notificationHubPath": "",
+  "signatureId": "8d5e9b58-7f5d-4064-a664-b91851d06a50",
+  "signatureKey": "06z23z/PDpoaWibwqRJUj3siOyzrhBOP5x4bp1AyEXQ=",
+  "telemetryInstrumentationKey": ""
+}

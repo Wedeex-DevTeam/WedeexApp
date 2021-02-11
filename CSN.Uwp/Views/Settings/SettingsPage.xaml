@@ -1,0 +1,121 @@
+﻿<core:CorePage xmlns:core="using:CSN.Uwp.Core"
+               x:Class="CSN.Uwp.Views.Settings.SettingsPage"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:local="using:CSN.Uwp.Views.Settings"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+               mc:Ignorable="d"
+               Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <core:CorePage.Resources>
+        <Style x:Key="SettingsToggleSwitch" TargetType="ToggleSwitch">
+            <Setter Property="Width" Value="44" />
+        </Style>
+        <Style x:Key="SettingsMarkdownContentStyle"
+               TargetType="controls:MarkdownTextBlock"
+               BasedOn="{StaticResource MarkdownTextBlock}">
+            <Setter Property="Header1Foreground" Value="#FFFFFF" />
+            <Setter Property="Header2FontSize" Value="16"/>
+            <Setter Property="Header2FontWeight" Value="Normal" />
+            <Setter Property="Foreground" Value="{StaticResource SettingsMarkdownContentColor}" />
+        </Style>
+    </core:CorePage.Resources>
+    <ScrollViewer>
+        <Grid Padding="104,115,104,0"
+              x:Name="MainGrid">
+            <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="WindowStates">
+                    <VisualState x:Name="Small">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="0" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="MainGrid.Padding"
+                                    Value="52,57,52,0" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Large">
+                        <VisualState.StateTriggers>
+                            <AdaptiveTrigger MinWindowWidth="760" />
+                        </VisualState.StateTriggers>
+                        <VisualState.Setters>
+                            <Setter Target="MainGrid.Padding"
+                                    Value="104,115,104,0" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateManager.VisualStateGroups>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="345" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="35" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <controls:MarkdownTextBlock x:Uid="Settings_AuthorizeNotificationsMarkdownTextBlock" 
+                                        Grid.Row="0"
+                                        Grid.Column="0"
+                                        LinkClicked="OnMarkdownTextBlockLinkClicked"
+                                        Margin="0,0,25,0"
+                                        Padding="0,0,25,0"
+                                        Style="{StaticResource SettingsMarkdownContentStyle}" />
+            <ToggleSwitch x:Name="Toggle1"
+                          IsOn="{x:Bind PageViewModel.EnablePushNotification, Mode=TwoWay}"
+                          Style="{StaticResource SettingsToggleSwitch}"
+                          VerticalAlignment="Top"
+                          Grid.Row="0"
+                          Grid.Column="1" />
+            <controls:MarkdownTextBlock x:Uid="Settings_AuthorizeDataCollectionMarkdownTextBlock" 
+                                        Grid.Row="2"
+                                        Grid.Column="0"
+                                        LinkClicked="OnMarkdownTextBlockLinkClicked"
+                                        Margin="0,0,25,0"
+                                        Padding="0,0,25,0"
+                                        Style="{StaticResource SettingsMarkdownContentStyle}" />
+            <ToggleSwitch IsOn="{x:Bind PageViewModel.EnableDataCollect, Mode=TwoWay }"
+                          Style="{StaticResource SettingsToggleSwitch}"
+                          VerticalAlignment="Top"
+                          Grid.Row="2"
+                          Grid.Column="1" />
+            <controls:MarkdownTextBlock x:Uid="Settings_DefaultCountryInfoMarkdownTextBlock" 
+                                        Grid.Row="4"
+                                        Grid.Column="0"
+                                        LinkClicked="OnMarkdownTextBlockLinkClicked"
+                                        Margin="0,0,25,0"
+                                        Padding="0,0,25,0"
+                                        Style="{StaticResource SettingsMarkdownContentStyle}" />
+            <ComboBox x:Uid="Settings_DefaultCountryComboBox" 
+                      IsEnabled="False"
+                      VerticalAlignment="Top"
+                      Grid.Row="4"
+                      Grid.Column="1" />
+            <controls:MarkdownTextBlock x:Uid="Settings_PageContentMarkdownTextBlock" 
+                                        Margin="0,45,0,0"
+                                        Grid.Row="5"
+                                        Grid.ColumnSpan="3"
+                                        LinkClicked="OnMarkdownTextBlockLinkClicked"
+                                        Style="{StaticResource SettingsMarkdownContentStyle}" />
+            <TextBlock x:Uid="Settings_VersionLabelTextBlock"
+                       Margin="0,45,0,67"
+                       Grid.Row="6"
+                       Grid.Column="0"
+                       Foreground="{StaticResource SettingsMarkdownTitleColor}"
+                       FontSize="16"
+                       FontWeight="Normal"/>
+            <TextBlock Margin="0,49,0,0"
+                       Grid.Row="8"
+                       Grid.Column="1"
+                       Foreground="{StaticResource SettingsMarkdownContentColor}"
+                       Text="{x:Bind PageViewModel.ApplicationVersion, Mode=OneWay}" />
+        </Grid>
+    </ScrollViewer>
+</core:CorePage>
+

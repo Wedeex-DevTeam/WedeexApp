@@ -1,0 +1,523 @@
+﻿<core:CorePage xmlns:core="using:CSN.Uwp.Core"
+               x:Class="CSN.Uwp.Views.Dashboard.DashboardPage"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:local="using:CSN.Uwp.Views.Dashboard"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+               xmlns:triggers="using:Microsoft.Toolkit.Uwp.UI.Triggers"
+               xmlns:models="using:CSN.Common.Models"
+               xmlns:numerics="using:System.Numerics"
+               mc:Ignorable="d"
+               Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <core:CorePage.Resources>
+
+        <x:String x:Key="NullFiedValue">-</x:String>
+
+        <Style x:Key="NetworkStateTitleTextBlockStyle"
+               BasedOn="{StaticResource TitleTextBlockStyle}"
+               TargetType="TextBlock">
+            <Setter Property="FontSize"
+                    Value="68" />
+            <Setter Property="FontWeight"
+                    Value="Black" />
+        </Style>
+
+        <Style x:Key="DashboardLabelTextBlockStyle"
+               BasedOn="{StaticResource BodyTextBlockStyle}"
+               TargetType="TextBlock">
+            <Setter Property="Foreground"
+                    Value="#7F7F7F" />
+        </Style>
+
+        <Style x:Key="DashboardFieldTextBlockStyle"
+               BasedOn="{StaticResource BodyTextBlockStyle}"
+               TargetType="TextBlock">
+            <Setter Property="FontSize"
+                    Value="54" />
+            <Setter Property="FontWeight"
+                    Value="Black" />
+        </Style>
+
+        <Style x:Key="DeviceConsumptionLabelTextBlockStyle"
+               BasedOn="{StaticResource DashboardLabelTextBlockStyle}"
+               TargetType="TextBlock">
+            <Setter Property="Grid.Row"
+                    Value="0" />
+        </Style>
+
+        <Style x:Key="DeviceConsumptionFieldTextBlockStyle"
+               BasedOn="{StaticResource DashboardFieldTextBlockStyle}"
+               TargetType="TextBlock">
+            <Setter Property="Grid.Row"
+                    Value="1" />
+        </Style>
+
+        <Style x:Key="AdditionnalInfosTextBlockStyle"
+               BasedOn="{StaticResource BodyTextBlockStyle}"
+               TargetType="TextBlock">
+            <Setter Property="FontSize"
+                    Value="14" />
+            <Setter Property="Margin"
+                    Value="16,8,32,8" />
+            <Setter Property="TextWrapping"
+                    Value="WrapWholeWords" />
+        </Style>
+
+        <Style x:Key="BatteryMessageGridStyle"
+               TargetType="Grid">
+            <Setter Property="Background"
+                    Value="{StaticResource LowDarkBackdropAcrylicBrush}" />
+            <Setter Property="CornerRadius"
+                    Value="6" />
+            <Setter Property="Grid.ColumnSpan"
+                    Value="2" />
+            <Setter Property="Grid.Row"
+                    Value="3" />
+            <Setter Property="HorizontalAlignment"
+                    Value="Left" />
+            <Setter Property="Padding"
+                    Value="8" />
+            <Setter Property="VerticalAlignment"
+                    Value="Bottom" />
+        </Style>
+
+    </core:CorePage.Resources>
+
+    <Grid>
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup x:Name="ElectricityNetworkStates">
+                <VisualState x:Name="ExcellentElectricityNetworkState">
+                    <VisualState.Setters>
+                        <Setter Target="NetworkStateIconPath.Data"
+                                Value="{StaticResource NetworkStateExcellentPathData}" />
+                        <Setter Target="NetworkStateIconPath.Width"
+                                Value="104" />
+                        <Setter Target="BackgroundImageBrush.ImageSource"
+                                Value="/Assets/Dashboard/NetworkStates/excellent-state-background.jpg" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <triggers:IsEqualStateTrigger Value="{x:Bind PageViewModel.ElectricityNetworkState, Mode=OneWay}"
+                                                      To="Excellent" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="PoorElectricityNetworkState">
+                    <VisualState.Setters>
+                        <Setter Target="NetworkStateIconPath.Data"
+                                Value="{StaticResource NetworkStatePoorPathData}" />
+                        <Setter Target="NetworkStateIconPath.Width"
+                                Value="96" />
+                        <Setter Target="BackgroundImageBrush.ImageSource"
+                                Value="/Assets/Dashboard/NetworkStates/poor-state-background.jpg" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <triggers:IsEqualStateTrigger Value="{x:Bind PageViewModel.ElectricityNetworkState, Mode=OneWay}"
+                                                      To="Poor" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="BadElectricityNetworkState">
+                    <VisualState.Setters>
+                        <Setter Target="NetworkStateIconPath.Data"
+                                Value="{StaticResource NetworkStateBadPathData}" />
+                        <Setter Target="NetworkStateIconPath.Width"
+                                Value="66" />
+                        <Setter Target="BackgroundImageBrush.ImageSource"
+                                Value="/Assets/Dashboard/NetworkStates/bad-state-background.jpg" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <triggers:IsEqualStateTrigger Value="{x:Bind PageViewModel.ElectricityNetworkState, Mode=OneWay}"
+                                                      To="Bad" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+            <VisualStateGroup x:Name="LayoutStates">
+                <VisualState x:Name="LargeLayoutState">
+                    <VisualState.Setters>
+                        <Setter Target="ContentStackPanel.Margin"
+                                Value="104,-32,104,127" />
+                        <Setter Target="HeaderGrid.Padding"
+                                Value="104" />
+                        <Setter Target="DashboardElectricityNetworkStateTitle.FontSize"
+                                Value="60" />
+                        <Setter Target="DashboardElectricityNetworkStateTitle.LineHeight"
+                                Value="44" />
+                        <Setter Target="DeviceConsumptionTextBlock.FontSize"
+                                Value="54" />
+                        <Setter Target="DeviceCarbonImpactTextBlock.FontSize"
+                                Value="54" />
+                        <Setter Target="CommonEffortFieldTextBlock.FontSize"
+                                Value="54" />
+                        <Setter Target="DashboardElectricityNetworkStateIconViewbox.Height"
+                                Value="240" />
+                        <Setter Target="DashboardElectricityNetworkStateIconViewbox.Width"
+                                Value="240" />
+                        <Setter Target="DashboardElectricityNetworkStateIconViewbox.RowSpan" 
+                                Value="3" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1228" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="MediumLayoutState">
+                    <VisualState.Setters>
+                        <Setter Target="CommonEffortGrid.Margin"
+                                Value="0,0,0,48" />
+                        <Setter Target="HeaderGrid.Padding"
+                                Value="52,104" />
+                        <Setter Target="ContentStackPanel.Margin"
+                                Value="52,-32,52,64" />
+                        <Setter Target="ContentStackPanel.Padding"
+                                Value="40,32" />
+                        <Setter Target="DashboardElectricityNetworkStateTitle.FontSize"
+                                Value="48" />
+                        <Setter Target="DashboardElectricityNetworkStateTitle.LineHeight"
+                                Value="40" />
+                        <Setter Target="DeviceConsumptionTextBlock.FontSize"
+                                Value="44" />
+                        <Setter Target="DeviceCarbonImpactTextBlock.FontSize"
+                                Value="44" />
+                        <Setter Target="CommonEffortFieldTextBlock.FontSize"
+                                Value="44" />
+                        <Setter Target="DashboardElectricityNetworkStateIconViewbox.Height"
+                                Value="165" />
+                        <Setter Target="DashboardElectricityNetworkStateIconViewbox.Width"
+                                Value="165" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="760" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="SmallLayoutState">
+                    <VisualState.Setters>
+                        <Setter Target="CommonEffortGrid.Margin"
+                                Value="0,0,0,24" />
+                        <Setter Target="CommonEffortGrid.Padding"
+                                Value="44,24" />
+                        <Setter Target="ContentStackPanel.Margin"
+                                Value="52,-32,52,64" />
+                        <Setter Target="ContentStackPanel.Padding"
+                                Value="40,32" />
+                        <Setter Target="HeaderGrid.Padding"
+                                Value="52,80" />
+                        <Setter Target="DashboardElectricityNetworkStateTitle.FontSize"
+                                Value="40" />
+                        <Setter Target="DashboardElectricityNetworkStateTitle.LineHeight"
+                                Value="36" />
+                        <Setter Target="DeviceConsumptionTextBlock.FontSize"
+                                Value="32" />
+                        <Setter Target="DeviceCarbonImpactTextBlock.FontSize"
+                                Value="32" />
+                        <Setter Target="CommonEffortFieldTextBlock.FontSize"
+                                Value="32" />
+                        <Setter Target="DashboardLogoViewbox.Visibility"
+                                Value="Visible" />
+                        <Setter Target="DashboardElectricityNetworkStateIconViewbox.Height"
+                                Value="128" />
+                        <Setter Target="DashboardElectricityNetworkStateIconViewbox.Width"
+                                Value="128" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="600" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+                <VisualState x:Name="MinimalLayoutState">
+                    <VisualState.Setters>
+                        <Setter Target="CommonEffortGrid.Margin"
+                                Value="0,0,0,24" />
+                        <Setter Target="CommonEffortGrid.Padding"
+                                Value="20" />
+                        <Setter Target="ContentStackPanel.Margin"
+                                Value="48,-32,48,64" />
+                        <Setter Target="ContentStackPanel.Padding"
+                                Value="20,32" />
+                        <Setter Target="HeaderGrid.Padding"
+                                Value="52,80" />
+                        <Setter Target="DashboardElectricityNetworkStateTitle.FontSize"
+                                Value="32" />
+                        <Setter Target="DashboardElectricityNetworkStateTitle.LineHeight"
+                                Value="28" />
+                        <Setter Target="DeviceConsumptionTextBlock.FontSize"
+                                Value="28" />
+                        <Setter Target="DeviceCarbonImpactTextBlock.FontSize"
+                                Value="28" />
+                        <Setter Target="CommonEffortFieldTextBlock.FontSize"
+                                Value="28" />
+                        <Setter Target="DashboardElectricityNetworkStateIconViewbox.Height"
+                                Value="104" />
+                        <Setter Target="DashboardElectricityNetworkStateIconViewbox.Width"
+                                Value="104" />
+                        <Setter Target="DashboardLogoViewbox.Visibility"
+                                Value="Collapsed" />
+                    </VisualState.Setters>
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <StackPanel HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Visibility="{x:Bind PageViewModel.IsAccessAuthorized, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=true, FallbackValue=Collapsed, Mode=OneWay}">
+
+            <FontIcon Glyph="&#xE783;"
+                      Style="{StaticResource LargeFontIconStyle}" />
+
+            <TextBlock x:Uid="UnauthorizedUserMessageTextBlock"
+                       Style="{StaticResource BaseTextBlockStyle}"
+                       Margin="16,50,16,0"
+                       TextAlignment="Center" />
+        </StackPanel>
+
+        <!-- Set here the dashboard content for authorized users -->
+        <ScrollViewer x:Name="PageScrollViewer"
+                      Visibility="{x:Bind PageViewModel.IsAccessAuthorized, Converter={StaticResource BoolToVisibilityConverter}, FallbackValue=Collapsed, Mode=OneWay}">
+
+            <ScrollViewer.Background>
+                <ImageBrush x:Name="BackgroundImageBrush"
+                            ImageSource="/Assets/Dashboard/NetworkStates/excellent-state-background.jpg" />
+            </ScrollViewer.Background>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Grid x:Name="HeaderGrid"
+                      Background="#40000000"
+                      Padding="104">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock x:Uid="Dashboard_NetworkStateTitleTextBlock" 
+                               x:Name="DashboardElectricityNetworkStateTitle"
+                               Style="{StaticResource NetworkStateTitleTextBlockStyle}" />
+
+                    <controls:MarkdownTextBlock Grid.Row="1"
+                                                LinkClicked="OnMarkdownTextBlockLinkClicked"
+                                                Margin="0,20,40,20"
+                                                Text="{x:Bind PageViewModel.ElectricityNetworkStateMarkdownContent, Mode=OneWay}" />
+
+                    <Grid Style="{StaticResource BatteryMessageGridStyle}"
+                          Visibility="{x:Bind PageViewModel.DisplayBatteryWarning, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <FontIcon Foreground="{x:Bind PageViewModel.ElectricityNetworkState, Converter={StaticResource ElectricityNetworkStateToColorBrushConverter}, Mode=OneWay}" 
+                                  Glyph="&#xE783;"
+                                  Style="{StaticResource SmallFontIconStyle}" />
+                        <TextBlock x:Uid="Dashboard_BatteryAdviceMessageTextBlock" 
+                                   Foreground="{x:Bind PageViewModel.ElectricityNetworkState, Converter={StaticResource ElectricityNetworkStateToColorBrushConverter}, Mode=OneWay}"
+                                   Grid.Column="1"
+                                   Margin="16,0,8,0"
+                                   Style="{StaticResource AdditionnalInfosTextBlockStyle}" />
+                    </Grid>
+                    <Grid Style="{StaticResource BatteryMessageGridStyle}"
+                          Visibility="{x:Bind PageViewModel.DisplayBatteryCongratulation, Converter={StaticResource BoolToVisibilityConverter}, FallbackValue=Collapsed, Mode=OneWay}">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>                        
+                        <FontIcon Glyph="&#xE930;"
+                                  Style="{StaticResource SmallFontIconStyle}" />
+                        <TextBlock x:Uid="Dashboard_BatteryCongratulationMessageTextBlock" 
+                                   Foreground="{StaticResource SystemAccentColorBrush}" 
+                                   Grid.Column="1"
+                                   Margin="16,0,8,0"
+                                   Style="{StaticResource AdditionnalInfosTextBlockStyle}" />
+                    </Grid>
+
+                    <Viewbox x:Name="DashboardElectricityNetworkStateIconViewbox"
+                             Grid.Column="1"
+                             Grid.RowSpan="3"
+                             Height="240"
+                             Width="240">
+                        <Grid>
+                            <controls:DropShadowPanel BlurRadius="14"
+                                                      Color="{x:Bind PageViewModel.ElectricityNetworkState, Converter={StaticResource ElectricityNetworkStateToColorConverter}, Mode=OneWay}"
+                                                      IsMasked="True"
+                                                      OffsetX="0"
+                                                      OffsetY="0"
+                                                      ShadowOpacity="1">
+                                <Ellipse Stroke="{x:Bind PageViewModel.ElectricityNetworkState, Converter={StaticResource ElectricityNetworkStateToColorBrushConverter}, Mode=OneWay}"
+                                         StrokeThickness="30"
+                                         Height="240"
+                                         Width="240" />
+                            </controls:DropShadowPanel>
+                            <Path x:Name="NetworkStateIconPath"
+                                  Data=""
+                                  Fill="{x:Bind PageViewModel.ElectricityNetworkState, Converter={StaticResource ElectricityNetworkStateToColorBrushConverter}, Mode=OneWay}"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center"
+                                  Width="104" />
+                        </Grid>
+                    </Viewbox>
+                </Grid>
+
+                <Rectangle Fill="{StaticResource DarkBackdropAcrylicBrush}"
+                           Grid.Row="1" />
+
+                <StackPanel x:Name="ContentStackPanel"
+                            Background="#181818"
+                            CornerRadius="6"
+                            Grid.Row="1"
+                            Margin="104,-32,104,127"
+                            Padding="40,32">
+
+                    <TextBlock x:Uid="Dashboard_DeviceConsumptionTitleTextBlock"
+                               Style="{StaticResource BodyTextBlockStyle}" />
+
+                    <Grid Margin="0,32,0,16">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="16" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+
+                        <TextBlock x:Uid="Dashboard_DeviceConsumptionLabelTextBlock"
+                                   Style="{StaticResource DeviceConsumptionLabelTextBlockStyle}" />
+
+                        <TextBlock x:Name="DeviceConsumptionTextBlock"
+                                   Style="{StaticResource DeviceConsumptionFieldTextBlockStyle}">
+                            <Run Text="{x:Bind PageViewModel.DeviceConsumption, Mode=OneWay}" />
+                            <Run x:Uid="Dashboard_DeviceConsumptionIndiceRun"
+                                 FontWeight="Normal" />
+                        </TextBlock>
+
+                        <TextBlock x:Uid="Dashboard_DeviceCarbonImpactLabelTextBlock"
+                                   Grid.Column="2"
+                                   Style="{StaticResource DeviceConsumptionLabelTextBlockStyle}" />
+
+                        <TextBlock x:Name="DeviceCarbonImpactTextBlock"
+                                   Grid.Column="2"
+                                   Style="{StaticResource DeviceConsumptionFieldTextBlockStyle}">
+                            <Run Text="{x:Bind PageViewModel.CarbonImpact, Mode=OneWay}" />
+                            <Run x:Uid="Dashboard_DeviceCarbonImpactIndiceRun"
+                                 FontWeight="Normal" />
+                        </TextBlock>
+                    </Grid>
+
+                    <StackPanel Margin="0,16,0,32">
+                        <TextBlock x:Uid="Dashboard_DeviceConsumptionIncludingLabelTextBlock" />
+                        <StackPanel Orientation="Horizontal">
+                            <FontIcon Glyph="&#xED35;"
+                                      Style="{StaticResource SmallFontIconStyle}" />
+                            <TextBlock Style="{StaticResource AdditionnalInfosTextBlockStyle}">
+                                <!--<Run x:Uid="Dashboard_DeviceAppsConsumptionLabelRun" />-->
+                                <Run FontWeight="Bold"
+                                     Text="{x:Bind PageViewModel.UserAppsConsumption, Mode=OneWay}" />
+                                <Run x:Uid="Dashboard_DeviceAppsConsumptionIndiceRun"
+                                     FontWeight="Bold" />
+                                 <Run x:Uid="Dashboard_DeviceAppsConsumptionLabel2Run" />
+                            </TextBlock>
+                        </StackPanel>
+                        <StackPanel x:Name="BatteryChargeImpactStackPanel"
+                                    Orientation="Horizontal"
+                                    Visibility="{x:Bind PageViewModel.DisplayBatteryConsumption, Converter={StaticResource BoolToVisibilityConverter}, Mode=OneWay}">
+                            <FontIcon Glyph="&#xE861;"
+                                      Style="{StaticResource SmallFontIconStyle}" />
+                            <TextBlock Style="{StaticResource AdditionnalInfosTextBlockStyle}">
+                                <Run FontWeight="Bold"
+                                     Text="{x:Bind PageViewModel.BatteryChargeConsumption, Mode=OneWay}" />
+                                <Run x:Uid="Dashboard_BatteryChargeConsumptionIndiceRun"
+                                     FontWeight="Bold" />
+                                <Run x:Uid="Dashboard_BatteryChargeConsumptionLabelRun" />
+                            </TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Grid x:Name="CommonEffortGrid"
+                          Background="{StaticResource SystemChromeBlackHighColor}"
+                          CornerRadius="6"
+                          Padding="44,24"
+                          Margin="0,0,0,48">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <Viewbox x:Name="DashboardLogoViewbox"
+                                 Height="42"
+                                 Margin="0,0,50,0">
+                            <Path x:Name="LogoPath"
+                                  Data="{StaticResource LogoPathData}"
+                                  Fill="{StaticResource SystemAccentColor}"
+                                  Grid.Column="0"
+                                  HorizontalAlignment="Center"
+                                  VerticalAlignment="Center" />
+                        </Viewbox>
+
+                        <StackPanel Grid.Column="1"
+                                    VerticalAlignment="Center">
+
+                            <TextBlock x:Uid="Dashboard_CommonEffort_TitleTextBlock"
+                                       Style="{StaticResource DashboardLabelTextBlockStyle}" />
+
+                            <TextBlock x:Name="CommonEffortFieldTextBlock"
+                                       Foreground="{StaticResource SystemAccentColorBrush}"
+                                       Style="{StaticResource DashboardFieldTextBlockStyle}">
+                                <Run Text="{x:Bind PageViewModel.CommonEffort, Mode=OneWay, TargetNullValue={StaticResource NullFiedValue}}" />
+                                <Run x:Uid="Dashboard_CommonEffort_IndiceRun"
+                                     FontWeight="Normal" />
+                            </TextBlock>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Uid="Dashboard_CommonEffortSuffixTextBlock"
+                                           Foreground="{StaticResource SystemAccentColorBrush}"
+                                           Style="{StaticResource BodyTextBlockStyle}" />
+                                <TextBlock Foreground="{StaticResource SystemAccentColorBrush}"
+                                           Style="{StaticResource BodyTextBlockStyle}"
+                                           Visibility="{x:Bind PageViewModel.IndividualEffort, Mode=OneWay, Converter={StaticResource StringVisibilityConverter}}">
+                                    <Run Text="" />
+                                    <Run x:Uid="Dashboard_IndividualEffortPrefixRun" />
+                                    <Run FontWeight="Bold"
+                                         Foreground="{StaticResource SystemBaseHighColor}"
+                                         Text="{x:Bind PageViewModel.IndividualEffort, Mode=OneWay}" />
+                                    <Run x:Uid="Dashboard_IndividualEffortIndiceRun"
+                                         FontWeight="Bold"
+                                         Foreground="{StaticResource SystemBaseHighColor}" />
+                                    <Run x:Uid="Dashboard_IndividualEffortSuffixRun" />
+                                </TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+
+                    <controls:MarkdownTextBlock x:Uid="Dashboard_PageContentMarkdownTextBlock" 
+                                                LinkClicked="OnMarkdownTextBlockLinkClicked"
+                                                Margin="0,32" />
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+
+        <StackPanel Background="{StaticResource AccentBackdropAcrylicBrush}"
+                    CornerRadius="6"
+                    Margin="40"
+                    Padding="40"
+                    VerticalAlignment="Top"
+                    Visibility="{x:Bind PageViewModel.IsScheduledTaskRegistered, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=true, FallbackValue=Collapsed, Mode=OneWay}">
+
+            <TextBlock x:Uid="Dashboard_CollectPopinMessageTextBlock" 
+                       Style="{StaticResource SubtitleTextBlockStyle}" />
+
+            <Button x:Uid="Dashboard_CollectPopinInstallButton" 
+                    Command="{x:Bind PageViewModel.ToggleScheduledTaskRegistrationCommand}"
+                    Margin="0,20,0,0" />
+        </StackPanel>
+    </Grid>
+</core:CorePage>

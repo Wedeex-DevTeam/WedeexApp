@@ -1,0 +1,49 @@
+﻿<core:CorePage xmlns:core="using:CSN.Uwp.Core"
+               x:Class="CSN.Uwp.Views.Start.StartPage"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+               xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+               xmlns:local="using:CSN.Uwp.Views.Start"
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+               xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+               xmlns:media="using:Microsoft.UI.Xaml.Media"
+               xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+               xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+               xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+               mc:Ignorable="d"
+               Background="{StaticResource DarkAcrylicBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{StaticResource CustomTitleBarGridLength}" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <!-- The following radial gradient hasn't the perfect rendering, so it was been replaced by an acrilyc from theme -->
+        <!--<Grid.Background>
+            <media:RadialGradientBrush MappingMode="RelativeToBoundingBox"
+                                       Center="0.66,0.16"
+                                       RadiusX="1"
+                                       RadiusY="1"
+                                       GradientOrigin="0.66,0.16"
+                                       SpreadMethod="Pad">
+                <GradientStop Color="#2A2A2A"
+                              Offset="0.0" />
+                <GradientStop Color="#000000"
+                              Offset="1" />
+            </media:RadialGradientBrush>
+        </Grid.Background>-->
+
+        <Viewbox x:Name="LogoViewBox"
+                 Grid.Row="1"
+                 Height="88"
+                 HorizontalAlignment="Center"
+                 VerticalAlignment="Center">
+
+            <Path Data="{StaticResource LogoPathData}"
+                  Fill="{StaticResource SystemAccentColor}" />
+            
+        </Viewbox>
+
+
+    </Grid>
+</core:CorePage>

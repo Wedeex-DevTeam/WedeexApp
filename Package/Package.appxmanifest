@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:uap3="http://schemas.microsoft.com/appx/manifest/uap/windows10/3"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap rescap uap3">
+
+  <Identity Name='CsnEnergyApp.WePower' Publisher='CN=45D1CC4B-8C5E-4D9A-BD4C-B2213F92DEB5'  Version="1.0.12.0" />
+
+  <Properties>
+    <DisplayName>WeDeex</DisplayName>
+    <PublisherDisplayName>Open source app based on WeDeex by CSN Energy</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.14393.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="$targetentrypoint$">
+      <uap:VisualElements
+        DisplayName="WeDeex"
+        Description="Package"
+        BackgroundColor="transparent"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png"  Square71x71Logo="Assets\SmallTile.png" Square310x310Logo="Assets\LargeTile.png" />
+        <uap:SplashScreen Image="Assets\SplashScreen.png"  BackgroundColor="#2A2A2A" />
+      </uap:VisualElements>
+
+      <Extensions>
+        <desktop:Extension
+          xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10"
+          Category="windows.fullTrustProcess"
+          Executable="E3Collector\E3Collector.exe">
+          <desktop:FullTrustProcess>
+            <desktop:ParameterGroup GroupId="ECRealtime" Parameters="EnergyCollectorRealtime" />
+            <desktop:ParameterGroup GroupId="ECRegister" Parameters="EnergyCollectorRegisterTask" />
+            <desktop:ParameterGroup GroupId="ECCheckRegistration" Parameters="EnergyCollectorCheckRegistration" />
+          </desktop:FullTrustProcess>
+        </desktop:Extension>
+
+        <uap3:Extension Category="windows.appExecutionAlias" Executable="E3Collector\E3Collector.exe" EntryPoint="Windows.FullTrustApplication">
+          <uap3:AppExecutionAlias
+            xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10">
+            <desktop:ExecutionAlias Alias="E3Collector.exe" />
+          </uap3:AppExecutionAlias>
+        </uap3:Extension>
+
+        <uap:Extension Category="windows.appService">
+          <uap:AppService Name="EnergyCollectorRealtime" />
+        </uap:Extension>
+
+        <uap:Extension Category="windows.appService">
+          <uap:AppService Name="EnergyCollectorBackground" />
+        </uap:Extension>
+
+        <uap:Extension Category="windows.appService">
+          <uap:AppService Name="EnergyCollectorCheckRegistration" />
+        </uap:Extension>
+
+        <uap:Extension Category="windows.appService">
+          <uap:AppService Name="EnergyCollectorRegisterTask" />
+        </uap:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <uap:Capability Name="userAccountInformation" />
+    <rescap:Capability Name="runFullTrust" />
+    <rescap:Capability Name="allowElevation" />
+  </Capabilities>
+</Package>

@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AppName" xml:space="preserve">
+    <value>WeDeex</value>
+  </data>
+  <data name="Dashboard_BatteryChargeCarbonImpactLabelRun.Text" xml:space="preserve">
+    <value>The consumption of your battery charge represents</value>
+  </data>
+  <data name="Dashboard_CommonEffortSuffixTextBlock.Text" xml:space="preserve">
+    <value>economized</value>
+  </data>
+  <data name="Dashboard_CommonEffort_IndiceRun.Text" xml:space="preserve">
+    <value>gCO2</value>
+  </data>
+  <data name="Dashboard_CommonEffort_TitleTextBlock.Text" xml:space="preserve">
+    <value>Together, we are contributing to the common effort</value>
+  </data>
+  <data name="Dashboard_DeviceAppsConsumptionLabelRun.Text" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Dashboard_DeviceAppsConsumptionLabel2Run.Text" xml:space="preserve">
+    <value>from your apps</value>
+  </data>
+  <data name="Dashboard_DeviceAppsConsumptionIndiceRun.Text" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="Dashboard_DeviceCarbonImpactIndiceRun.Text" xml:space="preserve">
+    <value>mgCO2</value>
+  </data>
+  <data name="Dashboard_DeviceCarbonImpactLabelTextBlock.Text" xml:space="preserve">
+    <value>This is</value>
+  </data>
+  <data name="Dashboard_DeviceConsumptionIndiceRun.Text" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="Dashboard_DeviceConsumptionLabelTextBlock.Text" xml:space="preserve">
+    <value>Your device consumes</value>
+  </data>
+  <data name="Dashboard_DeviceConsumptionTitleTextBlock.Text" xml:space="preserve">
+    <value>YOUR DEVICE</value>
+  </data>
+  <data name="Dashboard_IndividualEffortIndiceRun.Text" xml:space="preserve">
+    <value>g</value>
+  </data>
+  <data name="Dashboard_IndividualEffortPrefixRun.Text" xml:space="preserve">
+    <value>including</value>
+  </data>
+  <data name="Dashboard_IndividualEffortSuffixRun.Text" xml:space="preserve">
+    <value>from your contribution</value>
+  </data>
+  <data name="Menu_Dashboard" xml:space="preserve">
+    <value>Greenboard</value>
+  </data>
+  <data name="Menu_Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="UnauthorizedUserMessageTextBlock.Text" xml:space="preserve">
+    <value>Please be aware that this application is for now dedicated to microsoft accounts holders only.
+The application has been designed to run on microsoft surface devices and can not be used on desktop computers.</value>
+  </data>
+  <data name="Dashboard_BatteryChargeConsumptionIndiceRun.Text" xml:space="preserve">
+    <value>W</value>
+  </data>
+  <data name="Dashboard_BatteryChargeConsumptionLabelRun.Text" xml:space="preserve">
+    <value>from your battery charge</value>
+  </data>
+  <data name="Dashboard_DeviceConsumptionIncludingLabelTextBlock.Text" xml:space="preserve">
+    <value>Including</value>
+  </data>
+  <data name="Settings_VersionLabelTextBlock.Text" xml:space="preserve">
+    <value>Application Version</value>
+  </data>
+  <data name="Settings_AuthorizeDataCollectionMarkdownTextBlock.Text" xml:space="preserve">
+    <value>## Authorize data collection 
+As part of this application, we collect your device consumption in order to display it to you and to calculate and to display your personal avoided CO2 counter.</value>
+  </data>
+  <data name="Settings_AuthorizeNotificationsMarkdownTextBlock.Text" xml:space="preserve">
+    <value>## Authorize notifications 
+We will use notifications only to :
+
+- Inform you when the power generation quality indicator is evolving, so that you can adapt your device's charging periods.
+- Inform about the availability of new app functionalities.</value>
+  </data>
+  <data name="Settings_DefaultCountryComboBox.PlaceholderText" xml:space="preserve">
+    <value>France</value>
+  </data>
+  <data name="Settings_DefaultCountryInfoMarkdownTextBlock.Text" xml:space="preserve">
+    <value>## Country 
+Production energy mix informations are provided by RTE.</value>
+  </data>
+  <data name="Settings_PageContentMarkdownTextBlock.Text" xml:space="preserve">
+    <value># Conditions Générales d’Utilisation
+
+ 
+
+En utilisant l’application WeDeex, vous acceptez, dans leur intégralité, l’ensemble des conditions mentionnées ci-après.
+
+ 
+
+**Article 1 : Définition**
+
+Les mots et expressions ci-après au singulier ou au pluriel ont, dans le cadre des conditions générales d’utilisation la signification suivante :
+
+Application : le service informatique utilisable depuis le Terminal de l’Utilisateur, dénommé « WePower » à la date des présentes, permet de bénéficier immédiatement et gratuitement des Fonctionnalités proposés.
+
+CGU : les présentes conditions générales d’utilisation et leurs éventuelles modifications futures, dans la version applicable à l’Utilisateur.
+
+Fonctionnalités : désigne toute fonctionnalité proposée à l’Utilisateur par le biais de l’Application, tel que décrites dans l’Article 4. Cette énumération n’est pas exhaustive et est susceptible d’évoluer lors des mises à jour de l’Application.
+
+Terminal : matériel informatique Surface sur lequel l’Utilisateur installe l’Application.
+
+Utilisateur : désigne toute personne majeure utilisant l’Application.
+
+**Article 2 : Objet**
+
+Les présentes CGU ont pour objet de définir les droits et obligations de CSN et de l’Utilisateur dans le cadre de l’utilisation des Fonctionnalités. L’Utilisateur reconnaît les accepter sans réserve, du simple fait de l’utilisation de l’Application. Les présentes CGU, prévalent sur toutes autres Conditions d’Utilisation ou clauses contraires mentionnées par l’Utilisateur dans quelque document et sous quelque forme que ce soit. CSN se réserve le droit de modifier les présentes CGU à tout moment. Les conditions applicables sont alors celles en vigueur sur l'Application à la date de son Utilisation. En conséquence, l'Utilisateur est invité à venir consulter l'Application régulièrement afin de se tenir informé des évolutions les plus récentes.
+
+**Article 3 : Conditions d’inscription et compte Utilisateur**
+
+Pour pouvoir utiliser l’Application, l’Utilisateur devra d’abord la télécharger sur son Terminal. Lors de la première utilisation de l’Application, l’Utilisateur sera identifié à travers son identifiant “Microsoft”. A titre de condition essentielle et préalable, l’Utilisateur devra impérativement communiquer des informations personnelles, en particulier les données de consommation associées à l'utilisation de son Terminal et mesurées par l’Application. L’utilisation des données à caractère personnel des Utilisateurs est régie par l’article 9 des CGU. L’Application est accessible à tous types d’utilisateurs, sans restriction. Dans l’hypothèse où l’Utilisateur ne fournirait pas ces informations, CSN ne sera pas en mesure de mettre en œuvre la Fonctionnalité associée.
+
+**Article 4 : Description des Fonctionnalités**
+
+Les Fonctionnalités proposées par l’Application ne sont pas énumérées de manière exhaustive. Leurs caractéristiques peuvent évoluer en fonction des évolutions techniques et informatiques et des besoins des Utilisateurs. L’Application est mise en œuvre à titre expérimental. L’Application permet à l’Utilisateur de :
+
+
+
+- Mesurer la consommation électrique de son Terminal,
+
+- Connaitre le mix de production électrique français en temps réel grâce à trois indicateurs
+
+- Extrapoler le poids “CO2” de la consommation électrique du Terminal en temps réel
+
+
+
+**Article 5 : Accès à l’Application**
+
+L’utilisation de l’Application est réservée à toute personne physique majeure disposant d’un contrat de fourniture d’électricité et disposant d’un Terminal. L’utilisation des Fonctionnalités se fait via l’appel à certaines API propriété de CSN ou utilisant des API tierces.  
+
+**Article 6 : Engagement de l’Utilisateur**
+
+CSN informe l’Utilisateur de cette Application que l’ensemble des lois et règlements en vigueur sont applicables. D’une manière générale, l’Utilisateur s’engage à :
+
+
+
+- Respecter les termes des présentes CGU ;
+
+- Ne pas entraver le bon fonctionnement de l’Application de quelque manière que ce soit ainsi qu’à ne pas transmettre tout élément susceptible de contenir un virus ou autre élément susceptible de modifier, d’endommager ou d’interférer avec l’Application ;
+
+- S’assurer de ne transmettre à CSN dans le cadre de l’utilisation de l’Application que des informations exactes qu’il a personnellement vérifiées ;
+
+- S’abstenir de toute utilisation détournée de données personnelles de quiconque et d’une manière générale, de tout acte susceptible de porter atteinte à la vie privée ou à la réputation des personnes y compris protéger l’accès au terminal afin d’éviter l’utilisation de l’Application par des tiers non autorisés.
+
+- S’abstenir de toute utilisation détournée des services et ne pas porter atteinte aux droits des tiers et d’CSN, notamment en utilisant toute machine, robot ou autre moyen susceptible de modifier, réacheminer, endommager, surcharger l’Application, en utilisant l’application de manière incompatible avec un usage raisonnable ou encore en utilisant l’Application pour transmettre des éléments contraires à l’ordre public et/ou aux bonnes mœurs.
+
+- S’abstenir d’apporter ou faire apporter toute modification à l’Application et aux Fonctionnalités ainsi que dupliquer, reproduire, copier, incorporer, intégrer, réutiliser toute ou partie de l’Application et ses Fonctionnalités. L’Utilisateur garantit se conformer aux termes des contrats conclus avec des tiers qui seraient applicables pour lui permettre d’utiliser les Fonctionnalités (notamment contrat d’abonnement auprès d’un opérateur internet).
+
+
+
+**Article 7 : Droits, obligations et responsabilité de CSN**
+
+CSN s’efforcera de maintenir son Application accessible à l’Utilisateur, à titre individuel et non exclusif. Cependant, CSN pourra restreindre, suspendre ou en supprimer l’accès, notamment pour des raisons de maintenance et de mise à jour ou pour tout autre raison technique impérieuse ou en cas de suspicion d’intervention d’un tiers non autorisé. CSN peut modifier, suspendre ou migrer l’exploitation de l’Application en tout ou partie.
+
+Les données et informations diffusées sur l’Application sont fournies « en l’état » sans aucune garantie expresse ou tacite de quelque sorte que ce soit. Pour la réalisation des Fonctionnalités de l’Application, CSN est soumis à une obligation de moyens, sous réserve que l’Utilisateur ait autorisé la transmission des informations nécessaires à sa bonne réalisation.
+
+CSN n’émet aucune garantie de performance et de disponibilité de l’Application. CSN ne saurait être tenue pour responsable dans l’hypothèse où l’Utilisateur ne constaterait aucune réduction de sa consommation d’énergie, ni aucune baisse du montant de ses factures d’électricité. CSN ne sera pas responsable en cas de difficulté d’accès à l’Application notamment liée à des dysfonctionnements provenant des matériels et installations de l’Utilisateur. CSN ne saurait voir sa responsabilité engagée en cas de mauvaise utilisation de l’Application, d’utilisation non-conforme aux présentes CGU ou en cas d’utilisation frauduleuse par l’Utilisateur ou un tiers. CSN ne peut en aucun cas être tenu responsable d’un quelconque dommage immatériel direct ou d’un dommage indirect, qu’il soit matériel ou immatériel.
+
+**Article 8 : Conditions tarifaires**
+
+Les Fonctionnalités sont fournies par CSN à l’Utilisateur gratuitement. Les frais d’accès à internet facturés par son opérateur de communications restent à la charge de l’Utilisateur.
+
+**Article 9 : Protection des données personnelles**
+
+CSN s’engage à respecter les lois et règlements en vigueur relatifs à la protection de la vie privée. Le traitement des données personnelles mis en place a pour finalité l’analyse de la consommation électrique des Utilisateurs.  Les données personnelles collectées sur l’Application sont exclusivement destinées à CSN et à ses éventuels sous-traitants pour la mise en œuvre et la gestion de l’Application. CSN prend vis-à-vis de ses salariés, des sous-traitants, des fournisseurs et de toute personne physique ou morale qu’elle mandate dans le cadre de la mise en œuvre et la gestion de l’Application, toutes les dispositions utiles, notamment contractuelles, pour faire respecter par ceux-ci la confidentialité des informations dont ils pourraient avoir connaissance dans le cadre de la mise en œuvre et la gestion de l’Application. CSN utilise les services Microsoft Cloud Azure et des serveurs localisés dans l’Union Européenne pour le stockage des données personnelles.
+
+9.1 Traitement des données personnelles
+
+Conformément à la loi n°78-17 du 6 janvier 1978 modifiée et au règlement (UE) n°2016/679 du 27 avril 2016, les informations recueillies sont enregistrées dans un fichier informatisé par CSN en sa qualité de responsable de traitement pour la réalisation des Fonctionnalités. Ces informations sont conservées pendant une durée n’excédant pas celle nécessaires aux finalités pour lesquelles elles sont traitées et sont destinées aux services internes de CSN et aux prestataires ayant signé un contrat avec CSN. L’Utilisateur peut exercer son droit d'accès, de rectification, d’opposition et d’effacement pour des motifs légitimes et également son droit à la limitation du traitement et à la portabilité des données à caractère personnel le concernant. L’Utilisateur peut exercer ses droits par courriel à l’adresse suivante : dpo@csnenergy.com. Conformément à la loi « informatique et libertés », l’Utilisateur dispose de la faculté d’introduire une réclamation auprès de la CNIL.
+
+9.2 Notifications
+
+CSN communique avec l’Utilisateur par courrier électronique et à travers des notifications affichées depuis l’application.
+
+**Article 10 : Propriété intellectuelle**
+
+Sauf disposition contraire, toutes les informations ou documents contenus sur l’Application sont soit la propriété de CSN, soit font l’objet d’un droit d’utilisation, d’exploitation et de reproduction au bénéfice de CSN. Ces éléments sont soumis à la législation protégeant le droit d’auteur. Par conséquent, sous réserve des termes de l’article 4 relatif aux Fonctionnalités, aucune licence ni aucun autre droit sauf celui de consulter les informations, n’est conféré à quiconque au regard des droits de la propriété intellectuelle. Toute reproduction, représentation, modification, publication, transmission, dénaturation totale ou partielle du contenu de l’Application, par quelque procédé que ce soit, et sur quelque support que ce soit, est interdite. Toute exploitation non autorisée de l’Application ou de son contenu et des informations qui y sont divulguées engagerait la responsabilité de l’Utilisateur et constituerait une contrefaçon sanctionnée par les articles L.335-2 et suivants du Code de la propriété intellectuelle. Il en est de même des bases de données qui sont protégées par les dispositions de la loi du 1er juillet 1998 portant transposition dans le Code de la propriété intellectuelle de la Directive européenne 96/9/CE du 11 mars 1996 relative à la protection juridique des bases de données. A ce titre toute reproduction ou extraction engagerait la responsabilité de l’Utilisateur. La marque et le logo de CSN sont des marques déposées. Toute reproduction ou représentation totale ou partielle de cette marque et du logo, seuls ou intégrés à d’autres éléments, sans l’autorisation expresse et préalable de CSN, est prohibée et engagerait la responsabilité de l’Utilisateur au sens des articles L.713-2 et L.713-3 du Code de la propriété intellectuelle.
+
+**Article 11 : Dispositions générales**
+
+11.1 Force majeure
+
+CSN ne sera pas tenu pour responsable, ou considéré comme ayant failli aux dispositions des CGU, pour tout retard ou inexécution lorsque la cause du retard ou de l’inexécution résulte d’un cas de force majeure telle que définie par la jurisprudence des juridictions françaises.
+
+11.2 Nullité partielle
+
+Toutes dispositions des Conditions d’Utilisation, qui viendraient à être déclarées nulles ou illicites par un juge compétent seront privées d’effet. La nullité d’une telle disposition ne saurait porter atteinte aux autres dispositions des Conditions d’Utilisation, ni affecter leur validité dans leur ensemble ou leur effet juridique.
+
+11.3 Loi applicable
+
+Les présentes CGU sont soumises à la loi française.
+
+11.4 Compétences juridictionnelles
+
+En cas de litige relatif à la formation, l’interprétation ou l’exécution des CGU et à défaut de règlement amiable, CSN et l’Utilisateur donnent compétence expresse et exclusive au Tribunal de Grande Instance de Paris, nonobstant la pluralité de défendeurs ou d’action en référé, ou d’appel en garantie ou encore de demande de mesure conservatoire, sauf en cas d’application de l’article L.141-5 du Code de la consommation.
+
+11.5 Modification
+
+CSN se réserve le droit de modifier à tout moment tout ou partie des CGU, qu’il publiera via l’Application. L’Utilisateur est invité à prendre connaissance des modifications avec attention. Si l’Utilisateur continue à utiliser l’Application après les modifications, CSN considère qu’il fait une acceptation tacite des modifications. Si l’Utilisateur a des objections à propos des modifications apportées aux CGU, il peut demander la suppression de son compte.
+
+</value>
+  </data>
+  <data name="Dashboard_BatteryAdviceMessageTextBlock.Text" xml:space="preserve">
+    <value>Use your device's battery to consume less energy</value>
+  </data>
+  <data name="Dashboard_BatteryCongratulationMessageTextBlock.Text" xml:space="preserve">
+    <value>Congratulations ! You are currently using your device battery and therefore contributing to the global CO2 savings indicator</value>
+  </data>
+  <data name="Dashboard_CollectPopinInstallButton.Content" xml:space="preserve">
+    <value>Install</value>
+  </data>
+  <data name="Dashboard_CollectPopinMessageTextBlock.Text" xml:space="preserve">
+    <value>Click here to finish install and authorize data collection</value>
+  </data>
+  <data name="Dashboard_NetworkStateTitleTextBlock.Text" xml:space="preserve">
+    <value>Power generation quality</value>
+  </data>
+  <data name="Dashboard_PageContentMarkdownTextBlock.Text" xml:space="preserve">
+    <value># IT’S JUST A START! 
+All together we achieved to avoid the emission of XXg of CO2 which is the equivalent of XX km driven by an average passenger vehicle in France. Let's continue our efforts !
+Your personal contribution so far is XX g of CO2 avoided, keep on, every little bit counts .
+
+***** 
+
+# HOW CAN I HELP TO CONTRIBUTE? 
+That’s quite easy. The power generation quality indicator is based on the real time French electricity mix and it translates this information into real time CO2 emissions.
+When green, it means that the electricity production relies more likely on low carbon generation sources such as wind power, solar power, hydropower and nuclear power. If needed, it’s the right time to fully recharge your device battery ! 
+When red, it means that the current energy mix heavily relies on carbon-based sources like thermal power plant based on gas or coal. If possible, use you device battery, it’s not the right time to charge it.
+Please make sure you turn on notifications so that you get warned when the power generation quality indicator is changing!
+
+# HOW IS THE GLOBAL AVOIDED CO2 EMISSIONS INDICATOR CALCULATED? 
+Through this app, we collect your real time device consumption. We compare your consumption history to it to the electricity mix production quality. 
+Each time you take an action to postpone the charging of your device for a more low carbon period, the CO2 counter calculates the resulting average savings in CO2 emissions you did. The global indicator stands for all the green week participants efforts.</value>
+  </data>
+  <data name="NetworkStates_Bad_MarkdownContent" xml:space="preserve">
+    <value>**The CO2 emission rate of the power generation is currently high.** If possible, use your device's battery, it’s not the right time to be connected to the power supply.</value>
+  </data>
+  <data name="NetworkStates_Excellent_MarkdownContent" xml:space="preserve">
+    <value>**The CO2 emission rate of the power generation is currently very low.** If needed, it is the right time to plug in your power cable to charge your device's battery!</value>
+  </data>
+  <data name="NetworkStates_Poor_MarkdownContent" xml:space="preserve">
+    <value>*The CO2 emission rate of the power generation is currently average.** If possible, use you device battery, it’s not the best time to charge it!</value>
+  </data>
+</root>
