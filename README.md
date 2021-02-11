@@ -27,7 +27,6 @@ We offer a freemium limited access to discover our apis .
 
 You will have to configure the [settings file](CSN.Common/Configuration/Configuration.json)
 ```json
-eae
 {
 
 "apiKey": "", // required to fetch Wedeex Realtime indicator's api
