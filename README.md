@@ -13,7 +13,7 @@
 *Become a master in understanding how electricity production works and how consumption emits CO2.
 Act collectively to reduce your electrical devices usage carbon footprint !*
 
-**This repos is an example of Wedeex's API implementation**
+**This repos is an example of Wedeex's API implementation,through a UWP application**
 
 
 ## Installation
@@ -29,24 +29,39 @@ You will have to configure the [settings file](CSN.Common/Configuration/Configur
 ```json
 {
 
-"apiKey": "", // required to fetch Wedeex Realtime indicator's api
+"apiKey": "",
 
 "consumptionReportUrl": "https://wedeex-api-center.azure-api.net/internal/consumption/report",
 
 "consumptionSummaryUrl": "https://wedeex-api-center.azure-api.net/consumption/summary",
 
-"notificationHubConnectionString": "", //your Azure Notification hub connection string
+"notificationHubConnectionString": "", 
 
-"notificationHubPath": "",//your Azure Notification hub path
+"notificationHubPath": "",
 
-"signatureId": "8d5e9b58-7f5d-4064-a664-b91851d06a50",//required for integrity checks
+"signatureId": "8d5e9b58-7f5d-4064-a664-b91851d06a50",
 
-"signatureKey": "06z23z/PDpoaWibwqRJUj3siOyzrhBOP5x4bp1AyEXQ=",//required for integrity checks
+"signatureKey": "06z23z/PDpoaWibwqRJUj3siOyzrhBOP5x4bp1AyEXQ=",
 
-"telemetryInstrumentationKey": ""//your Azure ApplicationInsight telemetry key
+"telemetryInstrumentationKey": ""
 
 }
 ```
+where
+```code
+"apiKey" is required to fetch Wedeex Realtime indicator's api
+
+"notificationHubConnectionString" is your Azure Notification hub connection string
+
+"notificationHubPath" is your Azure Notification hub path
+
+"signatureId" is required for integrity checks
+
+"signatureKey" is required for integrity checks
+
+"telemetryInstrumentationKey" is your Azure ApplicationInsight telemetry key
+```
+
 ## Usage
 Freemium API Key will let you make 1 call per 6 hour.
 You can upgrade it with customs plan using the mail contact above
