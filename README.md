@@ -69,7 +69,9 @@ You can upgrade it with customs plan using the mail contact above
 ## Limitations
 
 Wedeex API can provide energy mix production for the French territory. 
-More countries will be added in the next releases ;) 
+More countries will be added in the next releases ;)
+
+Today srumutil.exe is missing in the project. We expect a new version from Windows dev team in a few weeks.
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
